@@ -1,0 +1,70 @@
+<mat-drawer-container style="height: calc(100vh - 64px);">
+    <mat-drawer mode="side" opened style="width: 300px;">
+        <mat-list>
+            <mat-list-item>
+                <button mat-flat-button color="accent" (click)="taskService.addTaskDialog()" style="width: 100%;">
+                    <mat-icon matListIcon style="vertical-align:text-bottom;">add</mat-icon>
+                    Add Task
+                </button>
+            </mat-list-item>
+            <div mat-subheader><b>Pending Tasks ({{pendingTasks.length}})</b></div>
+            @for(_task of pendingTasks; track _task.id) {
+                @if (!_task.isComplete){
+                    <mat-list-item [routerLink]="['/tasks', _task.id]" [activated]="task.id === _task.id">
+                        <div matListItemTitle>{{_task.title}}</div>
+                        <div matListItemLine>Task: {{_task.id}} | <span style="color:red">Pending</span>
+                    </div>
+                </mat-list-item>
+                }
+            }
+            <div mat-subheader><b>Completed Tasks ({{completedTasks.length}})</b></div>
+            @for(_task of completedTasks; track _task.id) {
+                @if (_task.isComplete){
+                    <mat-list-item [routerLink]="['/tasks', _task.id]" [activated]="task.id === _task.id">
+                        <div matListItemTitle>{{_task.title}}</div>
+                        <div matListItemLine>Task: {{_task.id}} | <span style="color:green">Completed
+                        </span>
+                    </div>
+                </mat-list-item>
+                }
+            }
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="margin-top: 2rem;">
+            <mat-card style="max-width: 500px; margin: auto;" appearance="outlined" *ngIf="task">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-title>
+                        {{task.title}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <p>Task: {{task.id}} &nbsp; | &nbsp; Updated {{task.modifiedAt | timeago}}</p>
+                    </mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{task.description}}
+                </p>
+                <mat-card-footer>
+                <p [ngStyle]="{'color':task.isComplete ? 'green' : 'red'}">
+                    Task {{task.isComplete ? 'completed' : 'pending'}}
+                </p>
+            </mat-card-footer>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-icon-button (click)="taskService.editTaskDialog(task)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="taskService.delete(task.id!); router.navigate(['/tasks']);">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div style="width: 100%; display: flex; justify-content: center; margin-top: 2rem;">
+    <a mat-raised-button color="primary" [routerLink]="['/tasks']">Back to Home</a>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>

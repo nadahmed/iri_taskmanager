@@ -1,0 +1,11 @@
+mat-toolbar.sub-toolbar{
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+button[mat-menu-item]{
+  color: rgb(119, 119, 119);
+}
+button[mat-menu-item].active {
+  color: black;
+}

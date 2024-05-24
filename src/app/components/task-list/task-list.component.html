@@ -1,0 +1,6 @@
+
+<div class="gallery-container">
+    @for (task of tasks; track task.id) {
+        <app-task-item [index]="$index+1" [task]="task"></app-task-item>
+    }
+</div>

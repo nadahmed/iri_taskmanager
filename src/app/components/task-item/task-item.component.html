@@ -1,0 +1,26 @@
+<mat-card appearance="outlined" *ngIf="!!task">
+    <mat-card-header>
+      <mat-card-title>{{ task.title | truncate:[32,'...'] }}</mat-card-title>
+      <mat-card-subtitle><span>Task: {{ task.id }} &nbsp; | &nbsp; Updated {{ task.modifiedAt | timeago }} </span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    <div style="height: 2rem;"></div>
+      <p>{{ task.description | truncate:[40, '...']}}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-icon-button [routerLink]="[task.id]">
+            <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="taskService.editTaskDialog(task)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="taskService.delete(task.id!)">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <div style="flex-grow: 1" ></div>
+        <span>
+            {{ task.isComplete ? 'Completed' : 'Pending' }}
+            <mat-slide-toggle (change)="toggleComplete(task)" [checked]="task.isComplete"></mat-slide-toggle>
+        </span>
+    </mat-card-actions>
+</mat-card>

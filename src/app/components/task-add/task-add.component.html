@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>
+    <mat-icon style="vertical-align: middle;">
+    {{editMode? 'edit' : 'task'}}
+    </mat-icon>
+    {{ card_title }}
+
+</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="8"></textarea>
+        </mat-form-field>
+        <div style="margin-left: auto;">
+            <mat-label>Complete?</mat-label>&nbsp;
+            <mat-slide-toggle type="checkbox" formControlName="isComplete"></mat-slide-toggle>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="onSubmit(form)" color="primary" mat-dialog-close [disabled]="!form.valid">Save</button>
+</mat-dialog-actions>

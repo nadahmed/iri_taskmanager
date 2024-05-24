@@ -1,0 +1,31 @@
+// app-task-item, mat-card {
+//     // width: calc(100% - 10px);
+//     // height: 100%;
+// }
+
+
+.container {
+    max-width: 1224px;
+    margin: 0 auto;
+}
+
+app-task-item {
+    margin: 0;
+    width: 100%;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+mat-toolbar.sub-toolbar {
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
