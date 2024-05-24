@@ -38,12 +38,12 @@ Run the following commands to build and run the application in a Docker containe
 
 ### Requirements
 
-- Node version >= 18
+- NodeJS version >= 18
 - [Angular CLI](https://github.com/angular/angular-cli) version 17.
 
 ### Installation
 
-Open the Terminal or command line and in your preferred project directory and do the following:
+Open the Terminal or command line in your project directory and do the following:
 
 - Install dependecies using `npm install`
 
