@@ -15,7 +15,6 @@ describe('TaskDetailComponent', () => {
       imports: [
         TaskDetailComponent,
         NoopAnimationsModule,
-        TimeagoModule.forRoot()
        ],
        providers: [
         {

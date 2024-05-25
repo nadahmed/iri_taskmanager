@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Task } from '../interfaces/task';
-import { BehaviorSubject, Observable, filter } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TaskAddComponent } from '../components/task-add/task-add.component';
 import { MatDialog } from '@angular/material/dialog';
 

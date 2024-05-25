@@ -7,7 +7,6 @@ import { TimeagoModule } from 'ngx-timeago';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(TimeagoModule.forRoot()),
     provideRouter(routes), provideAnimationsAsync()
   ]
 };

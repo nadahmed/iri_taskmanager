@@ -11,13 +11,13 @@ describe('TaskItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskItemComponent, TimeagoModule.forRoot(), RouterModule.forRoot([])],
+      imports: [TaskItemComponent, RouterModule.forRoot([])],
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(TaskItemComponent);
     component = fixture.componentInstance;
-    component.index=1;
+    component.index = 1;
     const task = { id: 1, title: 'Task 1', description: 'Description 1', isComplete: false, modifiedAt: new Date() }
     component.task = task;
     fixture.detectChanges();

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, importProvidersFrom } from '@angular/core';
 import { Task } from '../../interfaces/task';
 import { TaskService } from '../../services/task.service';
 import { RouterModule } from '@angular/router';
@@ -8,7 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { TimeagoModule } from 'ngx-timeago';
+import { TimeagoFormatter, TimeagoModule } from 'ngx-timeago';
 import { CommonModule } from '@angular/common';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
 
@@ -23,8 +23,8 @@ import { TruncatePipe } from '../../pipes/truncate.pipe';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    TimeagoModule,
     TruncatePipe,
+    TimeagoModule,
   ],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.scss'
